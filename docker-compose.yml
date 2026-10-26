@@ -1,0 +1,10 @@
+services:
+  dbagent:
+    image: appdynamics/db-agent:latest
+    pull_policy: never
+    container_name: dbagent-4
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      APPDYNAMICS_DB_AGENT_NAME: "DatabaseAgent-4"
+      APPDYNAMICS_DB_PROPERTIES: "-Ddbagent.telemetry.enabled=true"
